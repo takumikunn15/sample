@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/filipelinhares/ress/master/dist/ress.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/style.min.css">
-    <title>サンプル集</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/atelier-heath-light.css">
+    <link rel="stylesheet" href="../../css/style.min.css">
+    <title>解説</title>
 </head>
 
 <body>
     <div id="wrapper">
-
         <nav class="navbar is-light has-shadow" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
@@ -46,50 +48,18 @@
             </div>
         </nav>
 
-
         <div class="columns m-3">
             <div class="column">
             </div>
             <div class="column is-three-quarters">
-                <ul>
-                    <li class="mb-5">
-                        <div class="card">
-                            <div class="card-content">
-                                <p class="title">
-                                    360度写真
-                                </p>
-                                <p class="subtitle">
-                                    Aframeを使った360度パノラマのサンプル
-                                </p>
-                            </div>
-                            <footer class="card-footer">
-                                <a href="./samples/360degree-photo/360degree-photo.html" class="card-footer-item">
-                                    サンプルを見る
-                                </a>
-                                <a href="./samples/360degree-photo/explanation.html" class="card-footer-item">
-                                    解説を見る
-                                </a>
-                            </footer>
-                        </div>
-                    </li>
-                    <li class="mb-5">
-                        <div class="card">
-                            <div class="card-content">
-                                <a class="button title is-fullwidth" href="https://forms.gle/2mArXcE39GC5Cjkd8">
-                                    <span class="icon">
-                                        <i class="fas fa-plus-square"></i>
-                                    </span>
-                                    <span>解説依頼</span>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <div id="app" class="content">
+                    <h1>{{ docTitle }}</h1>
+                    <div v-html="compiledMarkdown"></div>
+                </div>
             </div>
             <div class="column">
             </div>
         </div>
-
     </div>
 
     <footer class="footer">
@@ -107,7 +77,8 @@
         document.addEventListener('DOMContentLoaded', () => {
 
             // Get all "navbar-burger" elements
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'),
+                0);
 
             // Check if there are any navbar burgers
             if ($navbarBurgers.length > 0) {
@@ -131,6 +102,9 @@
         });
     </script>
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js"></script>
+    <script src="../../script/app.js"></script>
 </body>
 
 </html>
